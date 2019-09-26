@@ -29,18 +29,19 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## 引用
 在app.module.ts中
-
+```javascript
 import { MgNgJschartingModule } from './modules/mg-ng-jscharting/mg-ng-jscharting.module';
 
 imports: [
     ...
     MgNgJschartingModule
 ]
-
+```
 ## 展示
 <app-activity-chart [Data]="jschartingdata"></app-activity-chart>
 
 ## 参数设置
+```javascript
 private ListData: any = [{
     color: '#f7d3ff',
     name: '年入职人数',
@@ -76,3 +77,4 @@ this.jschartingdata = {
       ListData: this.ListData,
       Setting: this.Setting
 };
+```
