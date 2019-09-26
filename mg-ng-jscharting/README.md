@@ -42,6 +42,9 @@ imports: [
 
 ## 参数设置
 ```javascript
+export class Data {
+  [key: string]: any;
+}
 private ListData: any = [{
     color: '#f7d3ff',
     name: '年入职人数',
@@ -73,6 +76,7 @@ private ListData: any = [{
       defaultEntry_style_color: this.ListData.slice(-1)[0].color
     }
 };
+jschartingdata: Data = new Data();
 this.jschartingdata = {
       ListData: this.ListData,
       Setting: this.Setting
