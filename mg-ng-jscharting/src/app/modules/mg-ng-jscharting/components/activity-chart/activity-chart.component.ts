@@ -1,5 +1,5 @@
 import { Component, AfterViewInit, OnDestroy, ViewChild, ElementRef, OnInit, Input } from '@angular/core';
-import * as JSC from 'jscharting';
+import * as JSC from 'mg-lib-jscharting';
 @Component({
   selector: 'app-activity-chart',
   templateUrl: './activity-chart.component.html',

@@ -4103,11 +4103,6 @@ jsbn@~0.1.0:
   resolved "http://repository.517.jiali/repository/npm-group/jsbn/-/jsbn-0.1.1.tgz#a5e654c2e5a2deb5f201d96cefbca80c0ef2f513"
   integrity sha1-peZUwuWi3rXyAdls77yoDA7y9RM=
 
-jscharting@^2.8.0-1:
-  version "2.8.0-1"
-  resolved "http://repository.517.jiali/repository/npm-group/jscharting/-/jscharting-2.8.0-1.tgz#84938398e5424779e62d54ff09ca78ab45e66ef1"
-  integrity sha1-hJODmOVCR3nmLVT/Ccp4q0XmbvE=
-
 jsesc@^1.3.0:
   version "1.3.0"
   resolved "http://repository.517.jiali/repository/npm-group/jsesc/-/jsesc-1.3.0.tgz#46c3fec8c1892b12b0833db9bc7622176dbab34b"
@@ -4584,6 +4579,11 @@ methods@~1.1.2:
   version "1.1.2"
   resolved "http://repository.517.jiali/repository/npm-group/methods/-/methods-1.1.2.tgz#5529a4d67654134edcc5266656835b0f851afcee"
   integrity sha1-VSmk1nZUE07cxSZmVoNbD4Ua/O4=
+
+mg-lib-jscharting@^1.0.0:
+  version "1.0.0"
+  resolved "http://repository.517.jiali/repository/npm-group/mg-lib-jscharting/-/mg-lib-jscharting-1.0.0.tgz#ec27cf4cc0988cb20e5cb330e29e24ad2798b92b"
+  integrity sha1-7CfPTMCYjLIOXLMw4p4krSeYuSs=
 
 micromatch@^3.1.10, micromatch@^3.1.4, micromatch@^3.1.8:
   version "3.1.10"
