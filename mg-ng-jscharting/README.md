@@ -28,6 +28,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 
 ## 引用
+安装包：yarn add jscharting
+
 在app.module.ts中
 ```javascript
 import { MgNgJschartingModule } from './modules/mg-ng-jscharting/mg-ng-jscharting.module';
