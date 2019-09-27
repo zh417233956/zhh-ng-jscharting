@@ -39,6 +39,12 @@ export class AppComponent implements OnInit {
       offset: '50,180',
       // 字体颜色
       defaultEntry_style_color: this.ListData.slice(-1)[0].color
+    },
+    showset:
+    {
+      visible: true,
+      settimeout: 50,
+      showtime: 3000
     }
   };
   jschartingdata: Data = new Data();

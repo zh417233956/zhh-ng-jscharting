@@ -5,7 +5,7 @@ import * as JSC from 'mg-lib-jscharting';
   templateUrl: './activity-chart.component.html',
   styleUrls: ['./activity-chart.component.less']
 })
-export class ActivityChartComponent implements AfterViewInit, OnDestroy {
+export class ActivityChartComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('chartTargetElement', null) chartTargetElement: ElementRef;
   @Input() Data: any;
 
@@ -13,27 +13,46 @@ export class ActivityChartComponent implements AfterViewInit, OnDestroy {
   private ListData: any = [];
   private Setting: any = {};
   private Legend: any = {};
+  private ShowSetting: any = {
+    visible: false,
+    settimeout: 0,
+    showtime: 0
+  };
   private SeriesListData = {
     palette: [],
     points: []
   };
-  ngAfterViewInit(): void {
-    if (this.Data.ListData) {
-      this.ListData = this.Data.ListData;
-      this.Setting = this.Data.Setting;
-      this.Legend = {
-        visible: true,
-        position: 'left',
-        defaultEntry_style_color: this.ListData.slice(-1)[0].color
-      };
-      this.ListData.forEach((item, index) => {
-        this.SeriesListData.palette.push(item.color);
+  ShowDivState = true;
+  constructor() { }
+  ngOnInit() {
+    this.ListData = this.Data.ListData;
+    this.Setting = this.Data.Setting;
+    this.ShowSetting = this.Data.Setting.showset;
+    this.Legend = {
+      visible: true,
+      position: 'left',
+      defaultEntry_style_color: this.ListData.slice(-1)[0].color
+    };
+    this.ListData.forEach((item, index) => {
+      this.SeriesListData.palette.push(item.color);
+      if (this.ShowSetting.visible) {
+        this.ShowDivState = false;
         this.SeriesListData.points.push({
           x: item.name,
           z: item.value,
           y: 5,
         });
-      });
+      } else {
+        this.SeriesListData.points.push({
+          x: item.name,
+          z: item.value,
+          y: item.scale,
+        });
+      }
+    });
+  }
+  ngAfterViewInit(): void {
+    if (this.Data.ListData) {
       this.chart = new JSC.Chart({
         targetElement: this.chartTargetElement.nativeElement,
         debug: false,
@@ -84,19 +103,22 @@ export class ActivityChartComponent implements AfterViewInit, OnDestroy {
         }],
         events: {
           load: () => {
-            setTimeout(() => {
-              this.chart.series().points().items.forEach((element, index) => {
-                element.options({
-                  y: this.ListData[index].scale
-                }, {
-                  animation: {
-                    duration: 1000,
-                    easing: 'none'
-                  }
+            if (this.ShowSetting.visible) {
+              setTimeout(() => {
+                this.ShowDivState = true;
+                this.chart.series().points().items.forEach((element, index) => {
+                  element.options({
+                    y: this.ListData[index].scale
+                  }, {
+                    animation: {
+                      duration: this.ShowSetting.showtime || 1000,
+                      easing: 'none'
+                    }
+                  });
                 });
-              });
-            }, 0);
-          },
+              }, this.ShowSetting.settimeout || 0);
+            }
+          }
         }
       }, null);
     }
