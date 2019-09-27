@@ -40,10 +40,9 @@ export class AppComponent implements OnInit {
       // 字体颜色
       defaultEntry_style_color: this.ListData.slice(-1)[0].color
     },
-    showset:
-    {
+    showset: {
       visible: true,
-      settimeout: 50,
+      settimeout: 1000,
       showtime: 3000
     }
   };
